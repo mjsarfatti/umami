@@ -19,6 +19,7 @@ node_modules
 /public/script.js
 /geo
 /dist
+.open-next
 
 # misc
 .DS_Store
@@ -40,4 +41,4 @@ yarn-error.log*
 *.env.*
 
 *.dev.yml
-
+.dev.vars
