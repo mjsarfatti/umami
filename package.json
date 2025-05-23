@@ -48,6 +48,8 @@
     "test": "jest",
     "cypress-open": "cypress open cypress run",
     "cypress-run": "cypress run cypress run",
+    "cf-build:only": "opennextjs-cloudflare build",
+    "cf-deploy:only": "opennextjs-cloudflare deploy",
     "cf-preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "cf-deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf-upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
