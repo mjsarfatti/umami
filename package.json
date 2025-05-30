@@ -48,11 +48,11 @@
     "test": "jest",
     "cypress-open": "cypress open cypress run",
     "cypress-run": "cypress run cypress run",
-    "cf-build:only": "opennextjs-cloudflare build",
-    "cf-deploy:only": "opennextjs-cloudflare deploy",
-    "cf-preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "cf-deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "cf-upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-build": "opennextjs-cloudflare build && cd .open-next/server-functions/default && mv handler.mjs handler.max.mjs && uglifyjs handler.max.mjs -c -m -o handler.mjs",
+    "cf-deploy": "opennextjs-cloudflare deploy -- --minify",
+    "cf-preview": "pnpm run cf-build && opennextjs-cloudflare preview",
+    "cf-bilploy": "pnpm run cf-build && pnpm run cf-deploy",
+    "cf-upload": "pnpm run cf-build && opennextjs-cloudflare upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "lint-staged": {
@@ -78,7 +78,7 @@
     "@dicebear/core": "^9.2.1",
     "@fontsource/inter": "^4.5.15",
     "@hello-pangea/dnd": "^17.0.0",
-    "@opennextjs/cloudflare": "^1.0.4",
+    "@opennextjs/cloudflare": "^1.1.0",
     "@prisma/client": "6.7.0",
     "@prisma/extension-read-replicas": "^0.4.1",
     "@react-spring/web": "^9.7.3",
@@ -186,6 +186,7 @@
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.5.3",
+    "uglify-js": "^3.19.3",
     "wrangler": "^4.16.1"
   }
 }
